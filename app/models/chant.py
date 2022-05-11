@@ -11,6 +11,9 @@ class Chant(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+    user = db.relationship('User', back_populates='chant')
+    remark = db.relationship('Remark', back_populates='chant', cascade='all, delete-orphan')
+    flame = db.relationship('Flame', back_populates='chant', cascade='all, delete-orphan')
 
     def chant_to_dict(self):
         return {

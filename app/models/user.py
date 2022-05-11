@@ -14,6 +14,10 @@ class User(db.Model, UserMixin):
     # bio = db.Column(db.String(255))
     # theme = db.Column(db.String())
 
+    chants = db.relationship('Chant', back_populates='user')
+    remarks = db.relationship('Remark', back_populates='user')
+    flames = db.relationship('Flame', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password

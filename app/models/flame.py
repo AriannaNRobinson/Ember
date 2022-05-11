@@ -8,6 +8,9 @@ class Flame(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     chant_id = db.Column(db.Integer, db.ForeignKey('chants.id'), nullable=False)
 
+    user = db.relationship('User', back_populates='flame')
+    chant = db.relationship('Chant', back_populates='flame')
+
     def flame_to_dict(self):
         return {
             'id': self.id,
