@@ -1,11 +1,11 @@
 from flask import Blueprint, request, redirect
 from flask_login import login_required, current_user
-from app.models import db, Chant
-from app.forms.chant_form import ChantForm
-from app.forms.edit_chant_form import EditChantForm
+from app.models import db, Chant, Remark
+from app.forms.remark_form import RemarkForm
+from app.forms.edit_remark_form import EditRemarkForm
 
 
-chant_routes = Blueprint('chants', __name__)
+remark_routes = Blueprint('remarks', __name__)
 
 
 def validation_errors_to_error_messages(validation_errors):
@@ -19,68 +19,70 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-@chant_routes.route('/')
+@remark_routes.route('/')
 @login_required
-def get_all_chants():
+def get_all_remarks():
     """
-    Displays all public chants
+    Displays all remarks
     """
-    chants = Chant.query.all()
-    result = {'chants': [chant.chant_to_dict() for chant in chants]}
+    remarks = Remark.query.all()
+    result = {'remarks': [remark.remark_to_dict() for remark in remarks]}
     # print(sorted([chant.chant_to_dict() for chant in chants], reverse=True))
     return result
 
 
-@chant_routes.route('/new', methods=['POST'])
+@remark_routes.route('/new', methods=['POST'])
 @login_required
-def create_new_chant():
+def create_new_remark():
     """
-    Creates a new chant
+    Creates a new remark
     """
     user_id = current_user.to_dict()['id']
-    form = ChantForm()
+    chant_id = Chant.query.get(id)
+    form = RemarkForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        new_chant = Chant (
+        new_remark = Remark (
             content=form.data['content'],
-            user_id=user_id
+            user_id=user_id,
+            chant_id=chant_id
         ) 
-        db.session.add(new_chant)
+        db.session.add(new_remark)
         db.session.commit()
-        return new_chant.chant_to_dict()
+        return new_remark.remark_to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-@chant_routes.route('/<int:id>', methods=['PUT'])
+@remark_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def update_existing_chant(id):
+def update_existing_remark(id):
     """
-    Updates an existing chant
+    Updates an existing remark
     """
     user_id = current_user.to_dict()['id']
-    form = EditChantForm()
+    form = EditRemarkForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        edit_chant = Chant.query.get(id)
+        edit_remark = Remark.query.get(id)
         #missing something
         db.session.commit()
-        # return new_chant.chant_to_dict()
-        return redirect('/')
+
+        return edit_remark.remark_to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
 
-@chant_routes.route('/<int:id>', methods=['DELETE'])
+@remark_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def delete_chant(id):
+def delete_remark(id):
     """
-    Deletes a chant and remarks/flames associated with that chant
+    Deletes a remark
     """
-    chant_to_delete = Chant.query.get_or_404(id)
-    db.session.delete(chant_to_delete)
+    remark_to_delete = Remark.query.get_or_404(id)
+    db.session.delete(remark_to_delete)
     db.session.commit()
-    return f'Your chant has been removed'
+    return f'Your remark has been removed'
