@@ -11,8 +11,8 @@ class Remark(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     chant_id = db.Column(db.Integer, db.ForeignKey('chants.id'), nullable=False)
 
-    user = db.relationship('User', back_populates='remark')
-    chant = db.relationship('Chant', back_populates='remark')
+    user = db.relationship('User', back_populates='remarks')
+    chant = db.relationship('Chant', back_populates='remarks')
 
     def remark_to_dict(self):
         return {
