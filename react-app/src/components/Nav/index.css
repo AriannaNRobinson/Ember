@@ -10,26 +10,6 @@ nav {
     background-color: rgb(25, 122, 38);
 }
 
-.button {
-    margin: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 1.5px;
-    padding: 5px 22px;
-    border-radius: 10px;
-    border: none;
-    background-color: white;
-    color: green;
-}
-.button:hover {
-    background-color: #FFD700;
-    /* background-color: rgb(143, 134, 12); */
-    color:black;
-}
-
-.icon {
-    font-size: 40px;
-    color: white;
-    /* position: fixed;
-    left: 20px; */
-    margin-left: 20px;
+#dragon-icon {
+    margin-left: 110px;
 }

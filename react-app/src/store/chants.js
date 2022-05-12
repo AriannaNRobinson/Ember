@@ -57,7 +57,7 @@ export const editChant = (formData, chantId) => async (dispatch) => {
     if (res.ok) {
         const myChant = await res.json();
         dispatch(updateChant(myChant));
-        return newChant;
+        return myChant;
     };
 };
 

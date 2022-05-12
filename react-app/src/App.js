@@ -13,13 +13,15 @@ import SignUpFormModal from './components/SignUpFormModal';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import WelcomePage from './components/WelcomePage';
+import LeftSideBar from './components/LeftSideBar';
+import Explore from './components/Explore';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -34,23 +36,28 @@ function App() {
       <Nav />
       {/* <NavBar /> */}
       <Switch>
-        <Route path='/' exact={true}>
+        {/* <Route path='/' exact={true}>
+          <WelcomePage />
+        </Route> */}
+        <Route path='/login' exact={true}>
+          {/* <LoginFormModal /> */}
           <WelcomePage />
         </Route>
-        <Route path='/login' exact={true}>
-          <LoginFormModal />
-        </Route>
-        <Route path='/sign-up' exact={true}>
+        {/* <Route path='/sign-up' exact={true}>
           <SignUpFormModal />
-        </Route>
+        </Route> */}
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <LeftSideBar />
+        </ProtectedRoute>
+        <ProtectedRoute path='/explore' exact={true} >
+          {/* <LeftSideBar /> */}
+          <Explore />
         </ProtectedRoute>
       </Switch>
       <Footer />

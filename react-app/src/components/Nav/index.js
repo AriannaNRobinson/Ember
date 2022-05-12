@@ -9,7 +9,7 @@ const Nav = () => {
   console.log(user)
   return (
     <nav>
-      <div className="fa-solid fa-dragon icon"></div>
+      <div className="fa-solid fa-dragon icon" id='dragon-icon'></div>
       {user
         ? <div>
           <LogoutButton />
