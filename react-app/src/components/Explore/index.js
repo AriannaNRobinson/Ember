@@ -31,7 +31,44 @@ const Explore = () => {
                             <div>{chant?.user_id}</div>
                             <div>{chant?.content}</div>
                             {/* <div>{chant?.remarks}</div> */}
-                            <div>{chant?.created_at}</div>
+                            <div>
+                                {chant?.created_at.split(" ")[0]}{" "}
+                                {chant?.created_at.split(" ")[2]}{" "}
+                                {chant?.created_at.split(" ")[1]},{" "}
+                                {chant?.created_at.split(" ")[3]} at{" "}
+                                {Number(
+                                    chant?.created_at
+                                        .split(" ")[4]
+                                        .split(":")[0]
+                                ) <= 12
+                                    ? chant?.created_at
+                                        .split(" ")[4]
+                                        .split(":")[0]
+                                    : Number(
+                                        chant?.created_at
+                                            .split(" ")[4]
+                                            .split(":")[0]
+                                    ) - 12}
+                                :
+                                {
+                                    chant?.created_at
+                                        .split(" ")[4]
+                                        .split(":")[1]
+                                }
+                                {Number(
+                                    chant?.created_at
+                                        .split(" ")[4]
+                                        .split(":")[0]
+                                ) > 12 ? 'PM' : 'AM'}
+                            </div>
+                            <div className='chant-options-container'>
+                                <div>
+                                    <i className="fa-solid fa-comment"></i>
+                                </div>
+                                <div>
+                                    <i className="fa-solid fa-fire-flame-curved"></i>
+                                </div>
+                            </div>
                             <div className='divider'></div>
                         </div>
                     ))}

@@ -16,10 +16,25 @@
     height: 90%;
     /* margin-left: 30px;
     margin-right: 30px; */
+    margin-top: 20px;
     overflow-y: scroll;
     justify-content: flex-start;
 }
 
+.feed > div {
+    width: 60%;
+    /* padding: 10px; */
+}
+
+.feed > div > div {
+    margin: 10px;
+}
+
 .suggested {
     margin-right: 10px;
+}
+
+.chant-options-container {
+    display: flex;
+    justify-content: space-between;
 }
