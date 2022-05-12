@@ -8,6 +8,11 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import LoginFormModal from './components/LoginFormModal';
+import SignUpFormModal from './components/SignUpFormModal';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import WelcomePage from './components/WelcomePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -26,13 +31,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <Nav />
+      {/* <NavBar /> */}
       <Switch>
+        <Route path='/' exact={true}>
+          <WelcomePage />
+        </Route>
         <Route path='/login' exact={true}>
-          <LoginForm />
+          <LoginFormModal />
         </Route>
         <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+          <SignUpFormModal />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -44,6 +53,7 @@ function App() {
           <h1>My Home Page</h1>
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

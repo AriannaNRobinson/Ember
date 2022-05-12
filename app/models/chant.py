@@ -20,5 +20,6 @@ class Chant(db.Model):
             'id': self.id,
             'content': self.content,
             'created_at': self.created_at,
-            'user_id': self.user_id
+            'user_id': self.user_id,
+            'remarks': [remark.remark_to_dict() for remark in self.remarks]
         }
