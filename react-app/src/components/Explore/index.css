@@ -22,7 +22,7 @@
 }
 
 .feed > div {
-    width: 60%;
+    width: 80%;
     /* padding: 10px; */
 }
 
@@ -32,6 +32,13 @@
 
 .suggested {
     margin-right: 10px;
+}
+
+
+
+.chant-details-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .chant-options-container {
@@ -46,15 +53,22 @@
 
 .num-chants {
     padding-left: 8px;
+    font-size: 20px;
+    color: green;
 }
 
-.icon3 {
+.icon4 {
     color: green;
     font-size: 26px;
 }
 
+.user1 {
+    font-size: 30px;
+}
+
 .chant {
     font-size: 22px;
+    padding: 10px 20px;
 }
 
 .remark-container {
@@ -63,14 +77,30 @@
     border: none;
     border-radius: 10px;
     background-color: white;
+    color: green;
+    margin: 10px 20px;
 }
 
 .remark-details-container {
     display: flex;
+    justify-content: space-between;
 }
+
+.user2 {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
 .remark {
-    padding: 2px 20px;
+    padding: 4px 20px;
+    font-size: 18px;
 }
 #remark-created-at {
-    font-size: 12px;
+    font-size: 14px;
+    padding: 4px 10px;
+}
+
+#chant-created-at {
+    font-size: 16px;
+    padding: 4px 10px;
 }
