@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getChant } from "../../store/chants";
+import ChantForm from "../ChantFormModal/ChantForm";
 import LeftSideBar from "../LeftSideBar";
 import UsersList from "../UsersList";
 import './index.css'
@@ -20,9 +21,7 @@ const Explore = () => {
             <LeftSideBar />
             <div className="main-content-container">
                 <div className="menu highest-ele create-chant-box">
-
-                    WRITE NEW CHANT WILL GO HERE
-
+                    <ChantForm />
                 </div>
                 <div className="menu feed">
 

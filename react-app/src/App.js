@@ -56,7 +56,6 @@ function App() {
           <LeftSideBar />
         </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true} >
-          {/* <LeftSideBar /> */}
           <Explore />
         </ProtectedRoute>
       </Switch>

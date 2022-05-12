@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom"
+import ChantFormModal from "../ChantFormModal";
 
 const LeftSideBar = () => {
     // const [clickedTab, setClickedTab] = useState(false)
@@ -33,10 +34,7 @@ const LeftSideBar = () => {
                 </div>
             </div>
             <div>
-                <button className='menu-item create-chant'>
-                    <i className='fa-solid fa-feather-pointed icon2'></i>
-                    <p>New Shout</p>
-                </button>
+                <ChantFormModal />
             </div>
         </div>
     )
