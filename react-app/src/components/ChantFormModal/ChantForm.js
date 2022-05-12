@@ -7,6 +7,7 @@ const ChantForm = () => {
     const dispatch = useDispatch()
     const userObj = useSelector(state => state.session.user)
     const userId = userObj.id
+    console.log(userId)
     const [content, setContent] = useState('')
 
     const submitChant = async (e) => {
@@ -16,7 +17,8 @@ const ChantForm = () => {
             user_id: userId
         }
         if (content) {
-            const newChant = await dispatch(addChant(formData))
+            await dispatch(addChant(formData))
+            setContent('')
         }
     }
 

@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom"
 import ChantFormModal from "../ChantFormModal";
 
+
 const LeftSideBar = () => {
+    // const dispatch = useDispatch()
+    const userObj = useSelector(state => state.session.user)
     // const [clickedTab, setClickedTab] = useState(false)
-    // working on onClick={setClickedTab(!clickedTab)} id={clickedTab ? 'clicked' : 'not-clicked'}
+    // working on   onClick={setClickedTab(!clickedTab)} id={clickedTab ? 'clicked' : 'not-clicked'}
+
     return (
         <div>
             <div className='menu highest-ele'>
@@ -35,6 +40,9 @@ const LeftSideBar = () => {
             </div>
             <div>
                 <ChantFormModal />
+            </div>
+            <div className="current-user">
+                <div>{userObj?.username}</div>
             </div>
         </div>
     )

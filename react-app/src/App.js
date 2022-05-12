@@ -55,7 +55,7 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <LeftSideBar />
         </ProtectedRoute>
-        <ProtectedRoute path='/explore' exact={true} >
+        <ProtectedRoute path='/explore-wilds' exact={true} >
           <Explore />
         </ProtectedRoute>
       </Switch>

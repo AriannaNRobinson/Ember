@@ -106,3 +106,12 @@
 .highest-ele {
     margin-top: 90px;
 }
+
+.current-user {
+    position: fixed;
+    left: 30px;
+    bottom: 70px;
+    font-size: 30px;
+    color: green;
+    letter-spacing: 2px;
+}
