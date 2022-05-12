@@ -38,3 +38,39 @@
     display: flex;
     justify-content: space-between;
 }
+
+.chant-options {
+    display: flex;
+    align-items: center;
+}
+
+.num-chants {
+    padding-left: 8px;
+}
+
+.icon3 {
+    color: green;
+    font-size: 26px;
+}
+
+.chant {
+    font-size: 22px;
+}
+
+.remark-container {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.remark-details-container {
+    display: flex;
+}
+.remark {
+    padding: 2px 20px;
+}
+#remark-created-at {
+    font-size: 12px;
+}
