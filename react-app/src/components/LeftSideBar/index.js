@@ -32,7 +32,7 @@ const LeftSideBar = () => {
                     </NavLink>
                 </div>
                 <div className='menu-item'>
-                    <NavLink to='/my-cave' exact={true}>
+                    <NavLink to={`/users/${userObj?.id}`} exact={true}>
                         <i className='fa-solid fa-dungeon icon2'></i>
                         <p>My Cave</p>
                     </NavLink>
@@ -42,7 +42,7 @@ const LeftSideBar = () => {
                 <ChantFormModal />
             </div>
             <div className="current-user">
-                <div>{userObj?.username}</div>
+                <NavLink to={`/users/${userObj?.id}`}>@{userObj?.username}</NavLink>
             </div>
         </div>
     )

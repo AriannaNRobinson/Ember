@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getChant } from "../../store/chants";
 import ChantForm from "../ChantFormModal/ChantForm";
@@ -8,8 +8,11 @@ import './index.css'
 
 const Explore = () => {
     const dispatch = useDispatch()
+    const userObj = useSelector(state => state.session.user)
     const chantsObj = useSelector(state => state.chants)
     const chants = Object.values(chantsObj)
+
+    const [toggleComment, setToggleComment] = useState('')
     console.log(chants)
 
     useEffect(() => {
@@ -23,8 +26,8 @@ const Explore = () => {
                 <div className="menu highest-ele create-chant-box">
                     <ChantForm />
                 </div>
+                {/* ALL USERS FEED */}
                 <div className="menu feed">
-
                     {chants.reverse().map(chant => (
                         <div key={chant.id}>
                             <div>{chant?.user_id}</div>
@@ -62,17 +65,24 @@ const Explore = () => {
                             </div>
                             <div className='chant-options-container'>
                                 <div>
-                                    <i className="fa-solid fa-comment"></i>
+                                    <i onClick={() => setToggleComment(toggleComment ? '' : chant?.id)} className="fa-solid fa-comment"></i>
                                 </div>
                                 <div>
                                     <i className="fa-solid fa-fire-flame-curved"></i>
                                 </div>
                             </div>
+                            {toggleComment !== '' && +toggleComment === +chant?.id && chant?.remarks.map(remark => (
+                                <div key={remark.id}>
+                                    <div>{remark?.content}</div>
+                                    <div>{remark?.user_id}</div>
+                                    <div>{remark?.created_at}</div>
+                                </div>
+                            ))}
                             <div className='divider'></div>
                         </div>
                     ))}
-
                 </div>
+
             </div>
             <div className="menu highest-ele suggested">
                 <p>Suggested Members:</p>

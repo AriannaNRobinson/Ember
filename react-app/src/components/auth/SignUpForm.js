@@ -39,7 +39,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/explore' />;
+    return <Redirect to='/explore-wilds' />;
   }
 
   return (

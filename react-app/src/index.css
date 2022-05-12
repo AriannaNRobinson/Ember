@@ -107,7 +107,8 @@
     margin-top: 90px;
 }
 
-.current-user {
+.current-user > a {
+    text-decoration: none;
     position: fixed;
     left: 30px;
     bottom: 70px;
