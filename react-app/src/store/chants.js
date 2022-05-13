@@ -23,7 +23,7 @@ const deleteChant = (chantId) => ({
 
 
 export const addChant = (formData) => async (dispatch) => {
-    const res = await fetch('/api/chants/', {
+    const res = await fetch('/api/chants/new', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

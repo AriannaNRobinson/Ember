@@ -51,12 +51,10 @@ def create_new_chant():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        # new_chant = Chant (
-        #     content=form.data['content'],
-        #     user_id=user_id
-        # ) 
-        new_chant = Chant()
-        form.populate_obj(new_chant)
+        new_chant = Chant (
+            content=form.content.data,
+            user_id=user_id
+        ) 
         db.session.add(new_chant)
         db.session.commit()
         return new_chant.chant_to_dict()
@@ -64,7 +62,7 @@ def create_new_chant():
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-@chant_routes.route('/<int:id>', methods=['PUT'])
+@chant_routes.route('/<int:id>', methods=['POST'])
 @login_required
 def update_existing_chant(id):
     """
@@ -76,11 +74,14 @@ def update_existing_chant(id):
 
     if form.validate_on_submit():
         edit_chant = Chant.query.get_or_404(id)
-        #missing something??
-        form.populate_obj(edit_chant)
-        db.session.commit()
-        # return new_chant.chant_to_dict()
-        return redirect('/')
+        if edit_chant:
+            edit_chant.content = form.content.data
+            db.session.add(edit_chant)
+            db.session.commit()
+            return edit_chant.chant_to_dict()
+        else: 
+            return {'error': 'Chant not found'}
+
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 

@@ -27,7 +27,7 @@
 }
 
 .divider {
-    border-top: 2px solid black;
+    border-top: 2px solid green;
     width: 100%;
     margin: 20px;
 }
@@ -87,6 +87,7 @@
 
 .menu-item > a > p {
     margin-left: 16px;
+    /* font-size: 20px; */
 }
 
 .menu-item > p {
@@ -105,4 +106,18 @@
 
 .highest-ele {
     margin-top: 90px;
+}
+
+.current-user > a {
+    text-decoration: none;
+    position: fixed;
+    left: 30px;
+    bottom: 70px;
+    font-size: 30px;
+    color: green;
+    letter-spacing: 2px;
+}
+
+#clicked {
+    background-color: #82df66;
 }
