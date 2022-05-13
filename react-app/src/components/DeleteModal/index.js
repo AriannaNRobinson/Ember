@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { Modal } from '../context/Modal';
-import EditChantForm from './EditChantForm';
+import Delete from './Delete';
 
-const EditChantFormModal = ({chant}) => {
+const DeleteModal = ({chant}) => {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
             <button onClick={() => setShowModal(true)} className='modify-chant'>
-                <i className='fa-solid fa-feather-pointed'></i>
-                <p>Edit</p>
+                <i className='fa-solid fa-ban'></i>
+                <p>Delete</p>
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditChantForm chant={chant} setShowModal={setShowModal}/>
+                    <Delete chant={chant} setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
-    );
+    )
 }
 
-export default EditChantFormModal;
+export default DeleteModal;

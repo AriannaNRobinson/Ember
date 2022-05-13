@@ -117,3 +117,7 @@
     color: green;
     letter-spacing: 2px;
 }
+
+#clicked {
+    background-color: #82df66;
+}

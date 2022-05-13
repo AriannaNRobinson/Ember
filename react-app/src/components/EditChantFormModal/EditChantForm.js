@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { editChant } from '../../store/chants'
 // import './index.css'
 
-const EditChantForm = ({ chant }) => {
+const EditChantForm = ({ chant, setShowModal }) => {
     const dispatch = useDispatch()
     const userObj = useSelector(state => state.session.user)
     // const chantsObj = useSelector(state => state.chants)
     // const chants = Object.values(chantsObj)
     console.log(chant?.id)
     const chantId = chant?.id
-    const userId = userObj.id
+    const userId = userObj?.id
     // console.log(userId)
     const [content, setContent] = useState(chant?.content)
 
@@ -24,6 +24,7 @@ const EditChantForm = ({ chant }) => {
         if (content) {
             await dispatch(editChant(formData, chantId))
             setContent('')
+            setShowModal(false)
         }
     }
 

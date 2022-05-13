@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getChant } from "../../store/chants";
 import ChantForm from "../ChantFormModal/ChantForm";
+import DeleteModal from "../DeleteModal";
 import EditChantFormModal from "../EditChantFormModal";
 import LeftSideBar from "../LeftSideBar";
 import UsersList from "../UsersList";
@@ -66,8 +67,12 @@ const Explore = () => {
                                 </div>
                             </div>
                             <div className="chant">{chant?.content}</div>
-
-                            <div><EditChantFormModal chant={chant}/></div>
+                            {chant?.user_id === userObj?.id &&
+                                <div className='modify'>
+                                    <div><EditChantFormModal chant={chant} /></div>
+                                    <div><DeleteModal chant={chant} /></div>
+                                </div>
+                            }
 
                             <div className='chant-options-container'>
                                 <div className="chant-options">

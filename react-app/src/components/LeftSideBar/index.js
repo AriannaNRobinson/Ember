@@ -10,6 +10,13 @@ const LeftSideBar = () => {
     // const [clickedTab, setClickedTab] = useState(false)
     // working on   onClick={setClickedTab(!clickedTab)} id={clickedTab ? 'clicked' : 'not-clicked'}
 
+    const clickedTab = () => {
+        if (window.location.pathname === 'explore-wilds') {
+            const ele = document.getElementById('explore-wilds')
+            ele.classList.add('clicked')
+        }
+    }
+
     return (
         <div>
             <div className='menu highest-ele'>

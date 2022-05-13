@@ -13,7 +13,7 @@ const ChantFormModal = () => {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <ChantForm />
+                    <ChantForm setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
