@@ -13,7 +13,7 @@ const DeleteModal = ({chant}) => {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <Delete chant={chant} setShowModal={setShowModal}/>
+                    <Delete chant={chant}/>
                 </Modal>
             )}
         </>

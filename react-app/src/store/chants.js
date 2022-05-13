@@ -48,7 +48,7 @@ export const getChant = () => async (dispatch) => {
 
 export const editChant = (formData, chantId) => async (dispatch) => {
     const res = await fetch(`/api/chants/${chantId}`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },

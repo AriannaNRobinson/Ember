@@ -38,13 +38,13 @@ def create_new_remark():
     Creates a new remark
     """
     user_id = current_user.to_dict()['id']
-    chant_id = Chant.query.get(id)
     form = RemarkForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+        chant_id = Chant.query.get_or_404(id)
         new_remark = Remark (
-            content=form.data['content'],
+            content=form.content.data,
             user_id=user_id,
             chant_id=chant_id
         ) 
@@ -66,11 +66,14 @@ def update_existing_remark(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        edit_remark = Remark.query.get(id)
-        #missing something
-        db.session.commit()
-
-        return edit_remark.remark_to_dict()
+        edit_remark = Remark.query.get_or_404(id)
+        if edit_remark:
+            edit_remark.content = form.content.data
+            db.session.add(edit_remark)
+            db.session.commit()
+            return edit_remark.remark_to_dict()
+        else:
+            return {'error': 'Remark not found'}
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
