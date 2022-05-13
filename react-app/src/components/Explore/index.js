@@ -23,8 +23,11 @@ const Explore = () => {
 
     return (
         <div className="page-container">
+
             <LeftSideBar />
+
             <div className="main-content-container">
+
                 <div className="menu highest-ele create-chant-box">
                     <ChantForm />
                 </div>
@@ -66,6 +69,7 @@ const Explore = () => {
                                     ) > 12 ? 'PM' : 'AM'}
                                 </div>
                             </div>
+
                             <div className="chant">{chant?.content}</div>
                             {chant?.user_id === userObj?.id &&
                                 <div className='modify'>
@@ -128,10 +132,12 @@ const Explore = () => {
                 </div>
 
             </div>
+
             <div className="menu highest-ele suggested">
                 <p>Suggested Members:</p>
                 <UsersList />
             </div>
+
         </div>
     )
 }
