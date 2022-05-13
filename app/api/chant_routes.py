@@ -62,7 +62,7 @@ def create_new_chant():
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-@chant_routes.route('/<int:id>', methods=['PUT'])
+@chant_routes.route('/<int:id>', methods=['POST'])
 @login_required
 def update_existing_chant(id):
     """
@@ -76,7 +76,7 @@ def update_existing_chant(id):
         edit_chant = Chant.query.get_or_404(id)
         if edit_chant:
             edit_chant.content = form.content.data
-            form.session.add(edit_chant)
+            db.session.add(edit_chant)
             db.session.commit()
             return edit_chant.chant_to_dict()
         else: 

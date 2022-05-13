@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getChant } from "../../store/chants";
 import ChantForm from "../ChantFormModal/ChantForm";
+import EditChantFormModal from "../EditChantFormModal";
 import LeftSideBar from "../LeftSideBar";
 import UsersList from "../UsersList";
 import './index.css'
@@ -65,6 +66,9 @@ const Explore = () => {
                                 </div>
                             </div>
                             <div className="chant">{chant?.content}</div>
+
+                            <div><EditChantFormModal chant={chant}/></div>
+
                             <div className='chant-options-container'>
                                 <div className="chant-options">
                                     <i onClick={() => setToggleComment(toggleComment ? '' : chant?.id)} className="fa-solid fa-comment icon4"></i>
