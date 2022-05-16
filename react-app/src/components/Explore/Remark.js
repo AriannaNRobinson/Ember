@@ -13,7 +13,7 @@ const Remark = ({ remarks, chantId }) => {
     useEffect(()=>{
         dispatch(getChant())
     }, [toggleRemark])
-    console.log(chantId)
+    // console.log(chantId)
 
     const submitRemark = async (e) => {
         e.preventDefault()

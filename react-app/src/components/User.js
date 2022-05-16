@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getChant } from '../store/chants';
 import ChantForm from './ChantFormModal/ChantForm';
-import DeleteModal from './DeleteModal';
+import DeleteModal from './DeleteChantModal';
 import EditChantFormModal from './EditChantFormModal';
 import LeftSideBar from './LeftSideBar';
 import UsersList from './UsersList';

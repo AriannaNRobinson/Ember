@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../context/Modal';
-import Delete from './Delete';
+import Delete from './DeleteChant';
 
 const DeleteModal = ({chant}) => {
     const [showModal, setShowModal] = useState(false);

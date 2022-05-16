@@ -1,7 +1,8 @@
 import EditChantFormModal from '../EditChantFormModal'
-import DeleteModal from '../DeleteModal'
+import DeleteModal from '../DeleteChantModal'
 import { useState } from 'react'
 import Remark from './Remark'
+import DeleteRemarkModal from '../DeleteRemark'
 
 const SingleChant = ({ chant, userObj }) => {
     const [toggleComment, setToggleComment] = useState('')
@@ -98,10 +99,16 @@ const SingleChant = ({ chant, userObj }) => {
                         </div>
                     </div>
                     <div className="remark">{remark?.content}</div>
+                    {remark?.user_id === userObj?.id &&
+                        <div className='modify'>
+                            <div><EditChantFormModal chant={chant} /></div>
+                            <div><DeleteRemarkModal remark={remark} /></div>
+                        </div>
+                    }
                 </div>
             ))}
             {toggleComment !== '' && +toggleComment === +chant?.id &&
-                <Remark remarks={chant?.remarks} chantId={chant?.id}/>
+                <Remark remarks={chant?.remarks} chantId={chant?.id} />
             }
             <div className='divider'></div>
         </div>

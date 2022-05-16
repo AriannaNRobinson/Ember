@@ -62,7 +62,7 @@ export const editRemark = (formData, remarkId) => async (dispatch) => {
 };
 
 export const removeRemark = (remarkId) => async (dispatch) => {
-    const res = await fetch(`/api/chants/${remarkId}`, {
+    const res = await fetch(`/api/remarks/${remarkId}`, {
         method: 'DELETE'
     });
     if (res.ok) {
