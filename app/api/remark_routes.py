@@ -40,13 +40,14 @@ def create_new_remark():
     user_id = current_user.to_dict()['id']
     form = RemarkForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print(form.content.data)
+    print(form.data, '========')
     if form.validate_on_submit():
-        chant_id = Chant.query.get_or_404(id)
+        # chant_id = Chant.query.get_or_404(id)
         new_remark = Remark (
-            content=form.content.data,
-            user_id=user_id,
-            chant_id=chant_id
+            content=form.data['content'],
+            user_id=form.data['user_id'],
+            chant_id=form.data['chant_id']
         ) 
         db.session.add(new_remark)
         db.session.commit()

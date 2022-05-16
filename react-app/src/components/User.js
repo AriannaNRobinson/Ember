@@ -69,7 +69,7 @@ function User() {
           <div className='chant-container' key={chant.id}>
             <div className='chant-details-container'>
               {/* need to change below to user NAME */}
-              <div className="user1">{chant?.user_id}</div>
+              <div className="user1">@{user.username}</div>
               <div className="chant" id='chant-created-at'>
                 {chant?.created_at.split(" ")[0]}{" "}
                 {chant?.created_at.split(" ")[2]}{" "}
