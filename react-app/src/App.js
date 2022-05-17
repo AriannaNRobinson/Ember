@@ -16,6 +16,7 @@ import WelcomePage from './components/WelcomePage';
 import LeftSideBar from './components/LeftSideBar';
 import Explore from './components/Explore';
 import CavePage from './components/CavePage';
+import FeatureComingSoon from './components/FeatureComingSoon';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -60,6 +61,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/explore-wilds' exact={true} >
           <Explore />
+        </ProtectedRoute>
+        <ProtectedRoute path='/messenger-hawk' exact={true} >
+          <FeatureComingSoon />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <CavePage />

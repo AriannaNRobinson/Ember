@@ -1,5 +1,9 @@
 /* TODO Add site wide styles */
 
+body {
+    background-color: rgb(248, 248, 248);
+}
+
 .button {
     margin: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
