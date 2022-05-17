@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { removeChant } from '../../store/chants'
 
-const Delete = ({ chant, setShowModal }) => {
+const Delete = ({ chant }) => {
     const dispatch = useDispatch()
     // const userObj = useSelector(state => state.session.user)
     // const userId = userObj?.id
@@ -11,7 +11,6 @@ const Delete = ({ chant, setShowModal }) => {
     const deleteChant = async (e) => {
         e.preventDefault()
         await dispatch(removeChant(chantId))
-        setShowModal(false)
     }
 
     return (

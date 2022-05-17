@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../context/Modal';
-import Delete from './Delete';
+import Delete from './DeleteChant';
 
 const DeleteModal = ({chant}) => {
     const [showModal, setShowModal] = useState(false);
@@ -13,7 +13,7 @@ const DeleteModal = ({chant}) => {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <Delete chant={chant} setShowModal={setShowModal}/>
+                    <Delete chant={chant}/>
                 </Modal>
             )}
         </>

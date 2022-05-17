@@ -20,12 +20,12 @@
     color: green;
 }
 
-.chant-input:focus {
+/* .chant-input:focus {
     font-size: 22px;
     padding: 10px;
     color: green;
     border:none;
-}
+} */
 
 .create-chant > p {
     margin-left: 10px;

@@ -62,7 +62,7 @@ def create_new_chant():
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-@chant_routes.route('/<int:id>', methods=['POST'])
+@chant_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_existing_chant(id):
     """

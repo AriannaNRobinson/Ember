@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -15,9 +15,11 @@ import Footer from './components/Footer';
 import WelcomePage from './components/WelcomePage';
 import LeftSideBar from './components/LeftSideBar';
 import Explore from './components/Explore';
+import CavePage from './components/CavePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const userObj = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,6 +43,7 @@ function App() {
         </Route> */}
         <Route path='/login' exact={true}>
           {/* <LoginFormModal /> */}
+          {userObj && <Redirect to='/explore-wilds'/>}
           <WelcomePage />
         </Route>
         {/* <Route path='/sign-up' exact={true}>
@@ -58,6 +61,9 @@ function App() {
         <ProtectedRoute path='/explore-wilds' exact={true} >
           <Explore />
         </ProtectedRoute>
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
+          <CavePage />
+        </ProtectedRoute> */}
       </Switch>
       <Footer />
     </BrowserRouter>
