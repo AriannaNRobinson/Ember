@@ -17,6 +17,7 @@ import LeftSideBar from './components/LeftSideBar';
 import Explore from './components/Explore';
 import CavePage from './components/CavePage';
 import FeatureComingSoon from './components/FeatureComingSoon';
+import Village from './components/TheVillage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,7 +45,7 @@ function App() {
         </Route> */}
         <Route path='/login' exact={true}>
           {/* <LoginFormModal /> */}
-          {userObj && <Redirect to='/explore-wilds'/>}
+          {userObj && <Redirect to='/explore-wilds' />}
           <WelcomePage />
         </Route>
         {/* <Route path='/sign-up' exact={true}>
@@ -57,13 +58,16 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <LeftSideBar />
+          {userObj && <Redirect to='/explore-wilds' />}
         </ProtectedRoute>
         <ProtectedRoute path='/explore-wilds' exact={true} >
           <Explore />
         </ProtectedRoute>
         <ProtectedRoute path='/messenger-hawk' exact={true} >
           <FeatureComingSoon />
+        </ProtectedRoute>
+        <ProtectedRoute path='/the-village' exact={true} >
+          <Village />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <CavePage />

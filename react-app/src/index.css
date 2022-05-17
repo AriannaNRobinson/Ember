@@ -4,6 +4,24 @@ body {
     background-color: rgb(248, 248, 248);
 }
 
+::-webkit-scrollbar {
+    width: 14px;
+    /* border-radius: 5px; */
+}
+::-webkit-scrollbar-track {
+    background: green;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #82df66;
+}
+
 .button {
     margin: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
