@@ -6,7 +6,7 @@ import ChantForm from "../ChantFormModal/ChantForm";
 import DeleteModal from "../DeleteChantModal";
 import EditChantFormModal from "../EditChantFormModal";
 import LeftSideBar from "../LeftSideBar";
-import UsersList from "../UsersList";
+import UsersList from "../Users/UsersList";
 import './index.css'
 import SingleChant from "./SingleChant";
 

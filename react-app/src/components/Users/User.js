@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getChant } from '../store/chants';
-import ChantForm from './ChantFormModal/ChantForm';
-import DeleteModal from './DeleteChantModal';
-import EditChantFormModal from './EditChantFormModal';
-import LeftSideBar from './LeftSideBar';
+import { getChant } from '../../store/chants';
+import ChantForm from '../ChantFormModal/ChantForm';
+import DeleteModal from '../DeleteChantModal';
+import EditChantFormModal from '../EditChantFormModal';
+import LeftSideBar from '../LeftSideBar';
 import UsersList from './UsersList';
 
 function User() {
