@@ -1,4 +1,5 @@
 import LeftSideBar from "../LeftSideBar"
+import SuggestedUsers from "../SuggestedMembers"
 import UsersList from "../Users/UsersList"
 
 
@@ -23,7 +24,7 @@ const Village = () => {
 
             <div className="menu highest-ele suggested">
                 <p>Suggested Members:</p>
-                <UsersList />
+                <SuggestedUsers />
             </div>
 
         </div>

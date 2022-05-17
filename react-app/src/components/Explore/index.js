@@ -9,6 +9,8 @@ import LeftSideBar from "../LeftSideBar";
 import UsersList from "../Users/UsersList";
 import './index.css'
 import SingleChant from "./SingleChant";
+import SuggestedUsers from "../SuggestedMembers";
+
 
 const Explore = () => {
     const dispatch = useDispatch()
@@ -45,7 +47,8 @@ const Explore = () => {
 
             <div className="menu highest-ele suggested">
                 <p>Suggested Members:</p>
-                <UsersList />
+                <SuggestedUsers />
+                
             </div>
 
         </div>

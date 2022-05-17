@@ -48,6 +48,11 @@ body {
     font-size: 28px;
 }
 
+.icon4:hover {
+    color: #82df66;
+    cursor: pointer;
+}
+
 .divider {
     border-top: 2px solid green;
     width: 100%;

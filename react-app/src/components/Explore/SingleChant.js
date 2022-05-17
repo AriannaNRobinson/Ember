@@ -13,7 +13,7 @@ const SingleChant = ({ chant, userObj }) => {
             <div className='chant-details-container'>
                 {/* need to change below to user NAME */}
                 {/* <EditChantFormModal */}
-                <div className="user1">{chant?.user_id}</div>
+                <div className="user1">@{chant?.username}</div>
                 <div className="chant" id='chant-created-at'>
                     {chant?.created_at.split(" ")[0]}{" "}
                     {chant?.created_at.split(" ")[2]}{" "}

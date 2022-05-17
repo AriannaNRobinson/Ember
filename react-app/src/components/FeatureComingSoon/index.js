@@ -1,5 +1,6 @@
 import LeftSideBar from "../LeftSideBar"
 import UsersList from "../Users/UsersList"
+import SuggestedUser from '../SuggestedMembers'
 
 const FeatureComingSoon = () => {
     return (
@@ -23,7 +24,7 @@ const FeatureComingSoon = () => {
   
         <div className="menu highest-ele suggested">
           <p>Suggested Members:</p>
-          <UsersList />
+          <SuggestedUser />
         </div>
   
       </div>

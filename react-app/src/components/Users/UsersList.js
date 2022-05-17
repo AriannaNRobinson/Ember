@@ -13,6 +13,7 @@ function UsersList() {
     fetchData();
   }, []);
 
+  // console.log(users)
   const userComponents = users.map((user) => {
     return (
       <li key={user.id}>

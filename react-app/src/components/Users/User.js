@@ -7,6 +7,7 @@ import DeleteModal from '../DeleteChantModal';
 import EditChantFormModal from '../EditChantFormModal';
 import SingleChant from '../Explore/SingleChant';
 import LeftSideBar from '../LeftSideBar';
+import SuggestedUsers from '../SuggestedMembers';
 import UsersList from './UsersList';
 
 function User() {
@@ -74,7 +75,7 @@ function User() {
 
       <div className="menu highest-ele suggested">
         <p>Suggested Members:</p>
-        <UsersList />
+        <SuggestedUsers />
       </div>
 
     </div>

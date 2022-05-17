@@ -31,11 +31,14 @@ const Remark = ({ remarks, chantId }) => {
 
     return (
         <div>
-            <button onClick={() => setToggleRemark(!toggleRemark)}>( + )</button>
+            <button className="add-remark" onClick={() => setToggleRemark(!toggleRemark)}>
+                <i className="fa-solid fa-square-plus"></i>
+                <p>Remark</p>
+                </button>
             {toggleRemark &&
-                <form onSubmit={submitRemark}>
-                    <textarea placeholder="Add remark..."maxLength='255' onChange={(e) => setContent(e.target.value)} value={content} required></textarea>
-                    <button>
+                <form className="new-remark-container" onSubmit={submitRemark}>
+                    <textarea className="remark-container" id='new-remark' placeholder="Add remark..."maxLength='255' onChange={(e) => setContent(e.target.value)} value={content} required></textarea>
+                    <button className="submit-btn">
                         Submit
                     </button>
                 </form>
