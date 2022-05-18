@@ -19,7 +19,7 @@ const Explore = () => {
     const chants = Object.values(chantsObj)
 
     // const [toggleComment, setToggleComment] = useState('')
-    console.log(chants)
+    // console.log(chants)
 
     useEffect(() => {
         dispatch(getChant())
