@@ -4,10 +4,14 @@ import { useState } from 'react'
 import Remark from './Remark'
 import DeleteRemarkModal from '../DeleteRemark'
 import EditRemarkFormModal from '../EditRemark'
+import Flame from '../Flames'
 
 const SingleChant = ({ chant, userObj }) => {
     const [toggleComment, setToggleComment] = useState('')
 
+    // const getFlameCount = (id) => {
+
+    // }
     return (
         <div className='chant-container' key={chant.id}>
             <div className='chant-details-container'>
@@ -59,15 +63,15 @@ const SingleChant = ({ chant, userObj }) => {
                     <i onClick={() => setToggleComment(toggleComment ? '' : chant?.id)} className="fa-solid fa-comment icon4"></i>
                     <div className='num-chants fa-solid'>{chant?.remarks?.length}</div>
                 </div>
-                <div>
-                    <i className="fa-solid fa-fire-flame-curved icon4"></i>
-                </div>
+
+                    <Flame chant={chant}/>
+
             </div>
             {toggleComment !== '' && +toggleComment === +chant?.id && chant?.remarks.map(remark => (
                 <div className='remark-container' key={remark.id}>
                     <div className="remark-details-container">
                         {/* need to change below to user NAME */}
-                        <div className="user2">{remark?.user_id}</div>
+                        <div className="user2">@{remark?.username}</div>
                         <div className="remark" id='remark-created-at'>
                             {remark?.created_at.split(" ")[0]}{" "}
                             {remark?.created_at.split(" ")[2]}{" "}

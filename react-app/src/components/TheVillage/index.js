@@ -22,10 +22,7 @@ const Village = () => {
 
             </div>
 
-            <div className="menu highest-ele suggested">
-                <p>Suggested Members:</p>
-                <SuggestedUsers />
-            </div>
+            <SuggestedUsers />
 
         </div>
     )

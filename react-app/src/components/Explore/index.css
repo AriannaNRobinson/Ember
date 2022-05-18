@@ -30,13 +30,6 @@
     margin: 10px;
 }
 
-.suggested {
-    margin-right: 10px;
-    height: 260px;
-}
-
-
-
 .chant-details-container {
     display: flex;
     justify-content: space-between;
@@ -181,4 +174,9 @@
     padding: 2px 14px;
     height: 34px;
     align-self: center;
+}
+
+.submit-btn:hover {
+    background-color: #82df66;
+    cursor: pointer;
 }

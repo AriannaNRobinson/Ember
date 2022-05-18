@@ -33,5 +33,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'chants': [chant.chant_to_dict() for chant in self.chants],
+            'remarks': [remark.remark_to_dict() for remark in self.remarks],
+            'flames': [flame.flame_to_dict() for flame in self.flames]
         }

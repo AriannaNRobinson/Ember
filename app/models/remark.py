@@ -20,5 +20,6 @@ class Remark(db.Model):
             'content': self.content,
             'created_at': self.created_at,
             'user_id': self.user_id,
-            'chant_id': self.chant_id
+            'chant_id': self.chant_id,
+            'username': self.user.username
         }

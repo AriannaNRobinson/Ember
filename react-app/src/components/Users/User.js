@@ -9,6 +9,7 @@ import SingleChant from '../Explore/SingleChant';
 import LeftSideBar from '../LeftSideBar';
 import SuggestedUsers from '../SuggestedMembers';
 import UsersList from './UsersList';
+import './index.css'
 
 function User() {
   const [user, setUser] = useState({});
@@ -73,10 +74,7 @@ function User() {
         </div>
       </div>
 
-      <div className="menu highest-ele suggested">
-        <p>Suggested Members:</p>
         <SuggestedUsers />
-      </div>
 
     </div>
   )

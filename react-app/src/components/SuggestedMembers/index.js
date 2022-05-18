@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import './index.css'
 
 const SuggestedUsers = () => {
     const [users, setUsers] = useState([]);
@@ -30,16 +31,21 @@ const SuggestedUsers = () => {
     // console.log(users)
     const userComponents = getRandomUser(users)?.map((user, i) => {
       return (
-        <li key={i}>
-          <NavLink to={`/users/${user?.id}`}>{user?.username !== undefined && user?.username}</NavLink>
-        </li>
+        <div className='members' key={i}>
+          <NavLink to={`/users/${user?.id}`}>
+            @{user?.username !== undefined && user?.username}
+            </NavLink>
+        </div>
       );
     });
   
     return (
       <>
         {/* <h1>User List: </h1> */}
-        <ul>{userComponents}</ul>
+        <div className="menu highest-ele suggested">
+        <p>Suggested</p>
+        <div>{userComponents}</div>
+      </div>
       </>
     );
 

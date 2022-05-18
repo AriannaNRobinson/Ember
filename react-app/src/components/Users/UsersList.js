@@ -16,16 +16,16 @@ function UsersList() {
   // console.log(users)
   const userComponents = users.map((user) => {
     return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-      </li>
+      <div className='members' key={user.id}>
+        <NavLink to={`/users/${user.id}`} id='all'>@{user.username}</NavLink>
+      </div>
     );
   });
 
   return (
     <>
       {/* <h1>User List: </h1> */}
-      <ul>{userComponents}</ul>
+      <div id='all-members'>{userComponents}</div>
     </>
   );
 }
