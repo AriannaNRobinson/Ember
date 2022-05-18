@@ -48,8 +48,27 @@ body {
     font-size: 28px;
 }
 
+.icon4 {
+    color: green;
+    font-size: 26px;
+}
+
 .icon4:hover {
     color: #82df66;
+    cursor: pointer;
+}
+
+.icon5 {
+    color: #667cdf;
+    color: rgb(243, 89, 18);
+    /* color: orangered; */
+    color: rgb(255, 153, 0);
+    font-size: 26px;
+}
+
+.icon5:hover {
+    color: rgb(0, 123, 139);
+    color: rgb(255, 217, 0);
     cursor: pointer;
 }
 

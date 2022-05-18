@@ -12,8 +12,8 @@ class Chant(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship('User', back_populates='chants')
-    remarks = db.relationship('Remark', back_populates='chant', )
-    flames = db.relationship('Flame', back_populates='chant')
+    remarks = db.relationship('Remark', back_populates='chant', cascade='all, delete')
+    flames = db.relationship('Flame', back_populates='chant', cascade='all, delete')
 
     def chant_to_dict(self):
         return {

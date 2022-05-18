@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-
+import { useDispatch, useSelector } from "react-redux"
+import { updateMe } from "../../store/session"
 
 const Flame = ({ chant }) => {
+    const dispatch = useDispatch()
     const chantId = chant?.id
     const [flameCount, setFlameCount] = useState(0)
     const userObj = useSelector(state => state.session.user)
-    const test = userObj?.flames?.filter(flame => flame?.user_id == userObj?.id)
-    console.log(userObj?.flames, '-------------')
-    console.log(test, '-------test')
+    const specificFlame = userObj?.flames?.filter(flame => flame?.user_id == userObj?.id && flame?.chant_id == chantId)
 
     const getFlameCount = async (chantId) => {
         const response = await fetch(`/api/flames/chant/${chantId}`)
@@ -28,18 +27,31 @@ const Flame = ({ chant }) => {
         setFlameCount(data.flames_count)
     }
 
+    const handleFlame = async () => {
+        if (specificFlame?.length) {
+            deleteFlame(chantId)
+        } else {
+            addFlame(chantId)
+        }
+        // await dispatch(getChant())
+    }
+
     useEffect(() => {
         getFlameCount(chantId)
-    }, [flameCount, test])
+        dispatch(updateMe())
+    }, [flameCount, dispatch])
 
     return (
-        <div>
-            <i className="fa-solid fa-fire-flame-curved icon4"></i>
-            {flameCount}
-            {test.length > 0
-                ? <i onClick={() => deleteFlame(chantId)} className='fa-solid fa-square-minus icon4'></i>
-                : <i onClick={() => addFlame(chantId)} className="fa-solid fa-square-plus icon4"></i>
+        <div className="chant-options">
+            {(userObj?.flames?.filter(flame => flame?.user_id == userObj?.id && flame?.chant_id == chantId))?.length > 0
+            ? <i onClick={handleFlame} className="fa-solid fa-fire-flame-curved icon5"></i> 
+            : <i onClick={handleFlame} className="fa-solid fa-fire-flame-curved icon4"></i>
             }
+            <div className="num-chants fa-solid">{flameCount}</div>
+            {/* <i onClick={handleFlame} className={(userObj?.flames?.filter(flame => flame?.user_id == userObj?.id && flame?.chant_id == chantId))?.length 
+                ? "fa-solid fa-fire-flame-curved icon5" 
+                : "fa-solid fa-fire-flame-curved icon4"}></i>
+            <div className="num-chants fa-solid">{flameCount}</div> */}
         </div>
     )
 }
