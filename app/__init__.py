@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.chant_routes import chant_routes
 from .api.remark_routes import remark_routes
+from .api.flame_routes import flame_routes
 
 from .seeds import seed_commands
 
@@ -35,6 +36,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(chant_routes, url_prefix='/api/chants')
 app.register_blueprint(remark_routes, url_prefix='/api/remarks')
+app.register_blueprint(flame_routes, url_prefix='/api/flames')
 
 db.init_app(app)
 Migrate(app, db)

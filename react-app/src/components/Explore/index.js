@@ -6,9 +6,11 @@ import ChantForm from "../ChantFormModal/ChantForm";
 import DeleteModal from "../DeleteChantModal";
 import EditChantFormModal from "../EditChantFormModal";
 import LeftSideBar from "../LeftSideBar";
-import UsersList from "../UsersList";
+import UsersList from "../Users/UsersList";
 import './index.css'
 import SingleChant from "./SingleChant";
+import SuggestedUsers from "../SuggestedMembers";
+
 
 const Explore = () => {
     const dispatch = useDispatch()
@@ -17,10 +19,12 @@ const Explore = () => {
     const chants = Object.values(chantsObj)
 
     // const [toggleComment, setToggleComment] = useState('')
-    console.log(chants)
+    // console.log(chants)
 
     useEffect(() => {
-        dispatch(getChant())
+        if (Object.keys(chantsObj).length === 0) {
+            dispatch(getChant())
+        }
         // dispatch(getRemark())
     }, [dispatch])
 
@@ -43,10 +47,7 @@ const Explore = () => {
 
             </div>
 
-            <div className="menu highest-ele suggested">
-                <p>Suggested Members:</p>
-                <UsersList />
-            </div>
+            <SuggestedUsers />
 
         </div>
     )

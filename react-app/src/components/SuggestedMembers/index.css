@@ -1,0 +1,28 @@
+.members {
+    margin: 40px;
+    font-size: 20px;
+}
+
+.suggested {
+    margin-right: 10px;
+    height: 500px;
+}
+
+.suggested > p {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    /* padding-top: 2px 16px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: green;
+    color: white;
+    /* border-radius: 10px; */
+    border-left: green 2px solid;
+    /* border-right: green 2px solid; */
+    color: green;
+    background-color: white;
+    background-color: rgb(212, 250, 222);
+}

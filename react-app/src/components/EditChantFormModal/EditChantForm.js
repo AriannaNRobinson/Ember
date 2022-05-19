@@ -8,10 +8,8 @@ const EditChantForm = ({ chant, setShowModal }) => {
     const userObj = useSelector(state => state.session.user)
     // const chantsObj = useSelector(state => state.chants)
     // const chants = Object.values(chantsObj)
-    console.log(chant?.id)
     const chantId = chant?.id
     const userId = userObj?.id
-    // console.log(userId)
     const [content, setContent] = useState(chant?.content)
 
     const changeChant = async (e) => {

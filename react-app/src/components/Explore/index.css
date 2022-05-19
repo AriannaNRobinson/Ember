@@ -30,12 +30,6 @@
     margin: 10px;
 }
 
-.suggested {
-    margin-right: 10px;
-}
-
-
-
 .chant-details-container {
     display: flex;
     justify-content: space-between;
@@ -55,11 +49,6 @@
     padding-left: 8px;
     font-size: 20px;
     color: green;
-}
-
-.icon4 {
-    color: green;
-    font-size: 26px;
 }
 
 .user1 {
@@ -134,4 +123,55 @@
 
 .modify-chant>p {
     padding-left: 5px;
+}
+
+.add-remark {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: green;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    padding: 2px 12px;
+    height: 28px;
+}
+
+.add-remark:hover {
+    background-color: #82df66;
+    cursor: pointer;
+}
+
+.add-remark > p {
+    padding-left: 5px;
+}
+
+.add-remark > i {
+    font-size: 20px;
+}
+
+.new-remark-container {
+    display: flex;
+}
+
+#new-remark {
+    /* width: 400px; */
+    width: 90%;
+    height: 60px;
+}
+
+.submit-btn {
+    text-decoration: none;
+    background-color: green;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    padding: 2px 14px;
+    height: 34px;
+    align-self: center;
+}
+
+.submit-btn:hover {
+    background-color: #82df66;
+    cursor: pointer;
 }

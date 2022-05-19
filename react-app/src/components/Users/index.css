@@ -1,0 +1,27 @@
+.members > a {
+    text-decoration: none;
+    /* color: green;
+    background-color: white; */
+    /* margin: 10px; */
+    padding: 10px 20px;
+    /* margin: 5px; */
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px 2px rgb(236, 235, 235);
+    background-color: green;
+    color: white;
+}
+
+.members > a:hover {
+    background-color: #82df66;
+    cursor: pointer;
+}
+
+#all-members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#all {
+    padding: 10px 20px;
+}
