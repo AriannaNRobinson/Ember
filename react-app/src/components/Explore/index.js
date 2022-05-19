@@ -22,9 +22,7 @@ const Explore = () => {
     // console.log(chants)
 
     useEffect(() => {
-        console.log(chantsObj)
         if (Object.keys(chantsObj).length === 0) {
-            console.log('-----RAN USEEFFECT----')
             dispatch(getChant())
         }
         // dispatch(getRemark())

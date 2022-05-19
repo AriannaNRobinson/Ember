@@ -9,7 +9,7 @@ const Flame = ({ chant }) => {
     // const [flame, setFlame] = useState()
     const userObj = useSelector(state => state.session.user)
     const specificFlame = userObj?.flames?.filter(flame => flame?.user_id == userObj?.id && flame?.chant_id == chantId)
-    console.log(specificFlame)
+    // console.log(specificFlame)
     const ref = useRef(null)
     const getFlameCount = async (chantId) => {
         const response = await fetch(`/api/flames/chant/${chantId}`)
@@ -34,11 +34,9 @@ const Flame = ({ chant }) => {
         const flame = ref.current
         if (flame.className === "fa-solid fa-fire-flame-curved icon5") {
             deleteFlame(chantId)
-            console.log('Wahhhhh :(')
             flame.className = "fa-solid fa-fire-flame-curved icon4"
         } else {
             addFlame(chantId)
-            console.log("Yay, I'm glad you liked it!")
             flame.className = "fa-solid fa-fire-flame-curved icon5"
         }
     }
