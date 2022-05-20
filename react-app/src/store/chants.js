@@ -33,7 +33,14 @@ export const addChant = (formData) => async (dispatch) => {
     if (res.ok) {
         const newChant = await res.json();
         dispatch(createChant(newChant));
-        return newChant;
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     };
 };
 
@@ -57,7 +64,14 @@ export const editChant = (formData, chantId) => async (dispatch) => {
     if (res.ok) {
         const myChant = await res.json();
         dispatch(updateChant(myChant));
-        return myChant;
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     };
 };
 

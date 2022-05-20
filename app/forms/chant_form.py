@@ -1,6 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, ValidationError
+
+def valid_chant(form, field):
+    content = field.data
+    if len(content) < 5:
+        raise ValidationError('Shout must contain at least 5 characters.')
+    if len(content) > 255:
+        raise ValidationError('Shout is too long.')
 
 class ChantForm(FlaskForm):
-    content = StringField('Chant', validators=[DataRequired()])
+    content = StringField('Chant', validators=[DataRequired('Shout cannot be empty.'), valid_chant])

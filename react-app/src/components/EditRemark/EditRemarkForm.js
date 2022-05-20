@@ -17,6 +17,16 @@ const EditRemarkForm = ({ remark, setShowModal }) => {
     // console.log(userId)
     const [content, setContent] = useState(remark?.content)
 
+    const [errors, setErrors] = useState([])
+
+    useEffect(() => {
+        let errors = []
+        if (content.length === 255) {
+            errors.push(['Character limit has been reached'])
+        }
+        setErrors(errors)
+    }, [content])
+
     const changeRemark = async (e) => {
         e.preventDefault()
         const formData = {
@@ -25,11 +35,14 @@ const EditRemarkForm = ({ remark, setShowModal }) => {
             id: remarkId,
             chant_id: chantId
         }
-        if (content) {
-            await dispatch(editRemark(formData, remarkId))
-            setContent('')
-            setShowModal(false)
+
+        const data = await dispatch(editRemark(formData, remarkId))
+        if (data) {
+            setErrors(data)
         }
+        setContent('')
+        setShowModal(false)
+
     }
 
     return (
@@ -39,6 +52,11 @@ const EditRemarkForm = ({ remark, setShowModal }) => {
                 <i className='fa-solid fa-feather-pointed icon2 icon3'></i>
                 <p>Update Remark</p>
             </button>
+            <div className='error-container'>
+                {errors && errors.map((error, ind) => (
+                    <div className='error' key={ind}>{error}</div>
+                ))}
+            </div>
         </form>
     )
 }
