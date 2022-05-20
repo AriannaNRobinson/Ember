@@ -8,6 +8,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(25, 122, 38);
+    /* border-bottom: 5px rgb(122, 194, 158) solid; */
+    z-index: 1;
 }
 
 #dragon-icon {

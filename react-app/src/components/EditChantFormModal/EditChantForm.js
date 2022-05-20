@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editChant } from '../../store/chants'
 // import './index.css'
@@ -12,6 +12,16 @@ const EditChantForm = ({ chant, setShowModal }) => {
     const userId = userObj?.id
     const [content, setContent] = useState(chant?.content)
 
+    const [errors, setErrors] = useState([])
+
+    useEffect(() => {
+        let errors = []
+        if (content.length === 255) {
+            errors.push(['Character limit has been reached'])
+        }
+        setErrors(errors)
+    }, [content])
+
     const changeChant = async (e) => {
         e.preventDefault()
         const formData = {
@@ -19,9 +29,13 @@ const EditChantForm = ({ chant, setShowModal }) => {
             user_id: userId,
             id: chantId
         }
-        if (content) {
-            await dispatch(editChant(formData, chantId))
+
+        const data = await dispatch(editChant(formData, chantId))
+        if (data) {
+            setErrors(data)
+        } else {
             setContent('')
+            setErrors([])
             setShowModal(false)
         }
     }
@@ -33,6 +47,11 @@ const EditChantForm = ({ chant, setShowModal }) => {
                 <i className='fa-solid fa-feather-pointed icon2 icon3'></i>
                 <p>Update Shout</p>
             </button>
+            <div className='error-container'>
+                {errors && errors.map((error, ind) => (
+                    <div className='error' key={ind}>{error}</div>
+                ))}
+            </div>
         </form>
     )
 }

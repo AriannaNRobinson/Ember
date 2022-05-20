@@ -34,12 +34,12 @@ function User() {
   }, [userId]);
 
   useEffect(() => {
- 
+
     if (Object.keys(chantsObj).length === 0) {
-        dispatch(getChant())
+      dispatch(getChant())
     }
     // dispatch(getRemark())
-}, [dispatch])
+  }, [dispatch])
 
   if (!user) {
     return null;
@@ -67,7 +67,13 @@ function User() {
 
       <div className="main-content-container">
         <div className="menu highest-ele create-chant-box">
-          <div className='user1'>@{user.username}</div>
+          {currentUser?.username === user?.username
+            ? <div className='my-cave-box'>
+              <div id='my-cave'>My Cave!</div>
+              <ChantForm />
+            </div>
+            : <div id='user-cave'>Welcome to... {user.username}'s cave!</div>
+          }
         </div>
 
         {/* ONLY CHANTS BY USER */}
@@ -78,7 +84,7 @@ function User() {
         </div>
       </div>
 
-        <SuggestedUsers />
+      <SuggestedUsers />
 
     </div>
   )

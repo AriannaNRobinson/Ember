@@ -33,7 +33,14 @@ export const addRemark = (formData) => async (dispatch) => {
     if (res.ok) {
         const newRemark = await res.json();
         dispatch(createRemark(newRemark));
-        return newRemark;
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     };
 };
 
@@ -57,7 +64,14 @@ export const editRemark = (formData, remarkId) => async (dispatch) => {
     if (res.ok) {
         const myRemark = await res.json();
         dispatch(updateRemark(myRemark));
-        return myRemark;
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     };
 };
 

@@ -9,8 +9,18 @@ const Remark = ({ remarks, chantId }) => {
     const userId = userObj?.id
     const [content, setContent] = useState('')
     const [toggleRemark, setToggleRemark] = useState(false)
-    
-    useEffect(()=>{
+
+    const [errors, setErrors] = useState([])
+
+    useEffect(() => {
+        let errors = []
+        if (content.length === 255) {
+            errors.push(['Character limit has been reached'])
+        }
+        setErrors(errors)
+    }, [content])
+
+    useEffect(() => {
         dispatch(getChant())
     }, [toggleRemark])
     // console.log(chantId)
@@ -22,11 +32,15 @@ const Remark = ({ remarks, chantId }) => {
             user_id: userId,
             chant_id: chantId
         }
-        if (content) {
-            await dispatch(addRemark(formData))
+
+        const data = await dispatch(addRemark(formData))
+        if (data) {
+            setErrors(data)
+        } else {
             setContent('')
             setToggleRemark(false)
         }
+
     }
 
     return (
@@ -34,13 +48,18 @@ const Remark = ({ remarks, chantId }) => {
             <button className="add-remark" onClick={() => setToggleRemark(!toggleRemark)}>
                 <i className="fa-solid fa-square-plus"></i>
                 <p>Remark</p>
-                </button>
+            </button>
             {toggleRemark &&
                 <form className="new-remark-container" onSubmit={submitRemark}>
-                    <textarea className="remark-container" id='new-remark' placeholder="Add remark..."maxLength='255' onChange={(e) => setContent(e.target.value)} value={content} required></textarea>
+                    <textarea className="remark-container" id='new-remark' placeholder="Add remark..." maxLength='255' onChange={(e) => setContent(e.target.value)} value={content} required></textarea>
                     <button className="submit-btn">
                         Submit
                     </button>
+                    <div className='error-container'>
+                        {errors && errors.map((error, ind) => (
+                            <div className='error' key={ind}>{error}</div>
+                        ))}
+                    </div>
                 </form>
             }
         </div>

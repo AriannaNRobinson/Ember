@@ -13,7 +13,7 @@ const Village = () => {
 
                 {/* ALL USERS FOR NOW (FUTURE SHADOW ONLY FEED) */}
                 <div className="menu highest-ele create-chant-box">
-                    <h2>All Members:</h2>
+                    <h2 className='all-members'>All Members:</h2>
                     <UsersList />
                 </div>
                 {/* <div className="menu feed">
