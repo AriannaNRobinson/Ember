@@ -5,6 +5,7 @@ body {
     /* font-family: fantasy; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     letter-spacing: 1px;
+    margin: 0px;
 }
 
 ::-webkit-scrollbar {
