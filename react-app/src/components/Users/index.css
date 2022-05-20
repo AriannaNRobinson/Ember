@@ -57,3 +57,27 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.my-cave-box {
+    width: inherit;
+}
+
+#my-cave {
+    color: green;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+    /* border-left: 2px solid green; */
+}
+
+#user-cave {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    color: green;
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 3px;
+    /* border-bottom: 2px solid green; */
+}
