@@ -20,8 +20,40 @@
 #all-members {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    height: 630px;
+    overflow-y: scroll;
 }
 
 #all {
     padding: 10px 20px;
+}
+
+
+.all-members {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: green 2px solid;
+    color: green;
+    background-color: rgb(212, 250, 222);
+}
+
+
+@media screen and (max-width: 1630px) {
+    #all-members {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 1520px) {
+    #all-members {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

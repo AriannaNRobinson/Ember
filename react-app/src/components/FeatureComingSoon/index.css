@@ -1,0 +1,41 @@
+#feature-coming{
+    padding: 30px;
+}
+
+#feature-coming > h2 {
+    color: green;
+    font-size: 24px;
+}
+
+#feature-coming > h2:first-child {
+    font-size: 28px;
+}
+
+#feature-coming > h2:last-child {
+    font-style: italic;
+}
+
+#feature-img {
+    border-radius: 20px;
+    /* border: 2px solid green; */
+    /* box-shadow: 2px 2px rgba(85, 148, 85, 0.562); */
+}
+
+.back-explore {
+    margin-left: 70px;
+    width: 200px;
+    height: 40px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.back-explore:hover {
+    cursor: pointer;
+    background-color: #82df66;
+}
