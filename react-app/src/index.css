@@ -120,9 +120,13 @@ body {
     /* background-color: red;
     background-color: rgb(182, 236, 196);
     border-radius: 10px; */
+    word-wrap: break-word;
+    max-width: 800px;
 }
 .remark {
     padding-left: 20px;
+    word-wrap: break-word;
+    max-width: 800px;
 }
 
 .user1 {
