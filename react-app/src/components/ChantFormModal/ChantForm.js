@@ -8,6 +8,7 @@ const ChantForm = ({ setShowModal }) => {
     const userObj = useSelector(state => state.session.user)
     const userId = userObj.id
     // console.log(userId)
+    const [fetching, setFetching] = useState(false)
     const [content, setContent] = useState('')
 
     const [errors, setErrors] = useState([])
@@ -22,12 +23,14 @@ const ChantForm = ({ setShowModal }) => {
 
     const submitChant = async (e) => {
         e.preventDefault()
+        setFetching(true)
         const formData = {
             content,
             user_id: userId
         }
 
         const data = await dispatch(addChant(formData))
+        setFetching(false)
         if (data) {
             setErrors(data)
         } else {
@@ -43,7 +46,7 @@ const ChantForm = ({ setShowModal }) => {
     return (
         <form className="create-form" onSubmit={submitChant}>
             <textarea className='chant-input' placeholder="Create a new shout..." maxLength='255' onChange={(e) => setContent(e.target.value)} value={content} required></textarea>
-            <button className="create-chant" id='btn' type="submit">
+            <button disabled={fetching} className="create-chant" id='btn' type="submit">
                 <i className='fa-solid fa-feather-pointed icon2 icon3'></i>
                 <p>New Shout</p>
             </button>

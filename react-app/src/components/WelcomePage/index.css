@@ -16,6 +16,13 @@ h1 {
     left: 520px;
 }
 
+.welcome-p2 {
+    position: absolute;
+    bottom: -90px;
+    left: 520px;
+    color: white;
+}
+
 img {
     width: 100%;
     /* height: 100vh; */

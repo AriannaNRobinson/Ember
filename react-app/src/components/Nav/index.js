@@ -6,7 +6,7 @@ import './index.css'
 
 const Nav = () => {
   const user = useSelector(state => state.session.user)
-  console.log(user)
+  // console.log(user)
   return (
     <nav>
       <div className="fa-solid fa-dragon icon" id='dragon-icon'></div>

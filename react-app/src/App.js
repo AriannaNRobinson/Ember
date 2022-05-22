@@ -18,6 +18,7 @@ import Explore from './components/Explore';
 import CavePage from './components/CavePage';
 import FeatureComingSoon from './components/FeatureComingSoon';
 import Village from './components/TheVillage';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -69,9 +70,9 @@ function App() {
         <ProtectedRoute path='/the-village' exact={true} >
           <Village />
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <CavePage />
-        </ProtectedRoute> */}
+        <Route >
+          <PageNotFound />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>
