@@ -10,6 +10,7 @@ import LeftSideBar from '../LeftSideBar';
 import SuggestedUsers from '../SuggestedMembers';
 import UsersList from './UsersList';
 import './index.css'
+import PageNotFound from '../PageNotFound';
 
 function User() {
   const [user, setUser] = useState({});
@@ -41,27 +42,19 @@ function User() {
     // dispatch(getRemark())
   }, [dispatch])
 
-  if (!user) {
-    return null;
-  }
+  // if (!user) {
+  //   <PageNotFound />
+  //   return
+  // }
 
   const userChants = chants?.filter(userChant => userChant?.user_id === user?.id)
 
 
 
   return (
-    // <ul className='highest-ele'>
-    //   <li>
-    //     <strong>User Id</strong> {userId}
-    //   </li>
-    //   <li>
-    //     <strong>Username</strong> {user.username}
-    //   </li>
-    //   <li>
-    //     <strong>Email</strong> {user.email}
-    //   </li>
-    // </ul>
-    <div className="page-container">
+    <>
+    {user.length ?
+      <div className="page-container">
 
       <LeftSideBar />
 
@@ -87,6 +80,8 @@ function User() {
       <SuggestedUsers />
 
     </div>
+    : <PageNotFound/> }
+    </>
   )
 }
 export default User;

@@ -252,3 +252,28 @@ input::placeholder {
 .login-form {
     width: 330px;
 }
+
+#page-not-found-container {
+    margin-right: 10px;
+    width: 100%;
+}
+
+
+.back {
+    /* margin-left: 70px; */
+    width: 200px;
+    height: 40px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.back:hover {
+    cursor: pointer;
+    background-color: #82df66;
+}
