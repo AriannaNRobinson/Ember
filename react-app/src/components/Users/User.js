@@ -49,7 +49,7 @@ function User() {
 
   const userChants = chants?.filter(userChant => userChant?.user_id === user?.id)
 
-  console.log(user)
+  // console.log(user)
 
   return (
     <>
