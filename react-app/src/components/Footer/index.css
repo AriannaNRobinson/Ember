@@ -10,11 +10,18 @@
     background-color: rgb(25, 122, 38);
 }
 
-.footer-container > a {
+.footer-container > p {
     color: white;
     letter-spacing: 2px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
+    padding: 0px 50px;
+    font-size: 18px;
+}
+
+.footer-container > a {
+    color: white;
+    font-size: 20px;
 }
 
 .footer-container > a:hover {
