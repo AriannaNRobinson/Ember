@@ -49,11 +49,11 @@ function User() {
 
   const userChants = chants?.filter(userChant => userChant?.user_id === user?.id)
 
-
+  console.log(user)
 
   return (
     <>
-    {user.length ?
+    {user?.username ? (
       <div className="page-container">
 
       <LeftSideBar />
@@ -80,7 +80,7 @@ function User() {
       <SuggestedUsers />
 
     </div>
-    : <PageNotFound/> }
+    ) : (<PageNotFound/>) }
     </>
   )
 }
