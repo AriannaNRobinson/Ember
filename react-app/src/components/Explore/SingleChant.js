@@ -5,14 +5,14 @@ import Remark from './Remark'
 import DeleteRemarkModal from '../DeleteRemark'
 import EditRemarkFormModal from '../EditRemark'
 import Flame from '../Flames'
-import { DateTime } from "luxon";
+import { DateTime } from "luxon"
 
 const SingleChant = ({ chant, userObj }) => {
     const [toggleComment, setToggleComment] = useState('')
 
-    const getDate = (str, format = 'fff') => {
+    const getDate = (str) => {
         const isoString = new Date(str).toISOString();
-        return DateTime.fromISO(isoString).toFormat(format);
+        return DateTime.fromISO(isoString).toFormat('ff');
     }
     // console.log(chant?.created_at)
     // console.log(getDate(chant?.created_at))
@@ -78,7 +78,8 @@ const SingleChant = ({ chant, userObj }) => {
                         {/* need to change below to user NAME */}
                         <div className="user2">@{remark?.username}</div>
                         <div className="remark" id='remark-created-at'>
-                            {remark?.created_at.split(" ")[0]}{" "}
+                            {remark?.created_at && getDate(remark?.created_at)}
+                            {/* {remark?.created_at.split(" ")[0]}{" "}
                             {remark?.created_at.split(" ")[2]}{" "}
                             {remark?.created_at.split(" ")[1]},{" "}
                             {remark?.created_at.split(" ")[3]} at{" "}
@@ -105,7 +106,7 @@ const SingleChant = ({ chant, userObj }) => {
                                 remark?.created_at
                                     .split(" ")[4]
                                     .split(":")[0]
-                            ) > 12 ? 'PM' : 'AM'}
+                            ) > 12 ? 'PM' : 'AM'} */}
                         </div>
                     </div>
                     <div className="remark">{remark?.content}</div>
