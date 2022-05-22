@@ -214,3 +214,7 @@ body {
     font-weight: bold;
     font-size: 18px
 }
+
+.error-container-sign-up {
+    max-width: 400px;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -14,13 +14,24 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+    const confirm_password = repeatPassword;
+      const data = await dispatch(signUp(username, email, password, confirm_password));
       if (data) {
         setErrors(data)
       }
-    }
   };
+
+  useEffect(() => {
+    let errors = []
+    if (username.length === 12) {
+        errors.push(['username: Character limit has been reached.'])
+    }
+    if (email.length === 200) {
+        errors.push(['email: Character limit has been reached.'])
+    }
+    setErrors(errors)
+    console.log(errors)
+}, [username, email])
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -44,18 +55,19 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
+      <div className='error-container-sign-up'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='error'key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label>Username</label>
         <input
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
+          maxLength='12'
         ></input>
       </div>
       <div>
@@ -65,6 +77,7 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          maxLength='200'
         ></input>
       </div>
       <div>
@@ -77,7 +90,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Confirm Password</label>
         <input
           type='password'
           name='repeat_password'
