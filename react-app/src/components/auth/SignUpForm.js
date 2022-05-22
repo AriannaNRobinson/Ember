@@ -57,44 +57,48 @@ const SignUpForm = () => {
     <form onSubmit={onSignUp}>
       <div className='error-container-sign-up'>
         {errors.map((error, ind) => (
-          <div className='error'key={ind}>{error}</div>
+          <div className='error2'key={ind}>{error}</div>
         ))}
       </div>
-      <div>
+      <div className='form-option-container'>
         <label>Username</label>
         <input
           type='text'
           name='username'
           onChange={updateUsername}
+          placeholder='Username'
           value={username}
           maxLength='12'
         ></input>
       </div>
-      <div>
+      <div className='form-option-container'>
         <label>Email</label>
         <input
           type='text'
           name='email'
           onChange={updateEmail}
+          placeholder='Email'
           value={email}
           maxLength='200'
         ></input>
       </div>
-      <div>
+      <div className='form-option-container'>
         <label>Password</label>
         <input
           type='password'
           name='password'
           onChange={updatePassword}
+          placeholder='Password'
           value={password}
         ></input>
       </div>
-      <div>
+      <div className='form-option-container'>
         <label>Confirm Password</label>
         <input
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
+          placeholder='Confirm Password'
           value={repeatPassword}
           required={true}
         ></input>
