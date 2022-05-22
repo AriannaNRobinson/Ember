@@ -30,7 +30,7 @@ const SignUpForm = () => {
         errors.push(['email: Character limit has been reached.'])
     }
     setErrors(errors)
-    console.log(errors)
+    // console.log(errors)
 }, [username, email])
 
   const updateUsername = (e) => {

@@ -5,13 +5,17 @@ import Remark from './Remark'
 import DeleteRemarkModal from '../DeleteRemark'
 import EditRemarkFormModal from '../EditRemark'
 import Flame from '../Flames'
+import { DateTime } from "luxon";
 
 const SingleChant = ({ chant, userObj }) => {
     const [toggleComment, setToggleComment] = useState('')
 
-    // const getFlameCount = (id) => {
-
-    // }
+    const getDate = (str, format = 'fff') => {
+        const isoString = new Date(str).toISOString();
+        return DateTime.fromISO(isoString).toFormat(format);
+    }
+    // console.log(chant?.created_at)
+    // console.log(getDate(chant?.created_at))
     return (
         <div className='chant-container' key={chant.id}>
             <div className='chant-details-container'>
@@ -19,7 +23,8 @@ const SingleChant = ({ chant, userObj }) => {
                 {/* <EditChantFormModal */}
                 <div className="user1">@{chant?.username}</div>
                 <div  id='chant-created-at'>
-                    {chant?.created_at.split(" ")[0]}{" "}
+                    {chant?.created_at && getDate(chant?.created_at)}
+                    {/* {chant?.created_at.split(" ")[0]}{" "}
                     {chant?.created_at.split(" ")[2]}{" "}
                     {chant?.created_at.split(" ")[1]},{" "}
                     {chant?.created_at.split(" ")[3]} at{" "}
@@ -46,7 +51,7 @@ const SingleChant = ({ chant, userObj }) => {
                         chant?.created_at
                             .split(" ")[4]
                             .split(":")[0]
-                    ) > 12 ? 'PM' : 'AM'}
+                    ) > 12 ? 'PM' : 'AM'} */}
                 </div>
             </div>
 
