@@ -1,5 +1,5 @@
 import LeftSideBar from "../LeftSideBar"
-import UsersList from "../Users/UsersList"
+// import UsersList from "../Users/UsersList"
 import SuggestedUser from '../SuggestedMembers'
 import './index.css'
 import dragon2 from '../../images/dragoneye1.jpg'

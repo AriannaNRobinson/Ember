@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getChant } from '../../store/chants'
+// import { getChant } from '../../store/chants'
 import { editRemark } from '../../store/remarks'
 // import './index.css'
 

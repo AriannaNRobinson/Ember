@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getChant } from '../../store/chants';
 import ChantForm from '../ChantFormModal/ChantForm';
-import DeleteModal from '../DeleteChantModal';
-import EditChantFormModal from '../EditChantFormModal';
+// import DeleteModal from '../DeleteChantModal';
+// import EditChantFormModal from '../EditChantFormModal';
 import SingleChant from '../Explore/SingleChant';
 import LeftSideBar from '../LeftSideBar';
 import SuggestedUsers from '../SuggestedMembers';
-import UsersList from './UsersList';
+// import UsersList from './UsersList';
 import './index.css'
 import PageNotFound from '../PageNotFound';
 
@@ -21,7 +21,7 @@ function User() {
   const chantsObj = useSelector(state => state.chants)
   const chants = Object.values(chantsObj)
 
-  const [toggleComment, setToggleComment] = useState('')
+  // const [toggleComment, setToggleComment] = useState('')
 
   useEffect(() => {
     if (!userId) {
@@ -40,7 +40,7 @@ function User() {
       dispatch(getChant())
     }
     // dispatch(getRemark())
-  }, [dispatch])
+  }, [dispatch, chantsObj])
 
   // if (!user) {
   //   <PageNotFound />
@@ -70,11 +70,16 @@ function User() {
         </div>
 
         {/* ONLY CHANTS BY USER */}
-        <div className="menu feed">
+        {userChants?.length 
+        ? <div className="menu feed">
           {userChants?.reverse().map(chant => {
             return <SingleChant key={chant?.id} chant={chant} userObj={currentUser} />
           })}
         </div>
+        : <div className='menu feed'>
+          <h2 id='no-shouts'>No shouts yet!</h2>
+        </div>
+        }
       </div>
 
       <SuggestedUsers />

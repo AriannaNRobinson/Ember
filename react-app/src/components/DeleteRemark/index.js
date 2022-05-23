@@ -10,7 +10,7 @@ const DeleteRemarkModal = ({remark}) => {
 
     useEffect(()=>{
         dispatch(getChant())
-    },[showModal])
+    },[showModal,dispatch])
 
     return (
         <>
