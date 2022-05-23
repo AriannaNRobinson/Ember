@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { updateMe } from "../../store/session"
+import { useSelector } from "react-redux"
+// import { updateMe } from "../../store/session"
 
 const Flame = ({ chant }) => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const chantId = chant?.id
     const [flameCount, setFlameCount] = useState(0)
     // const [flame, setFlame] = useState()
     const userObj = useSelector(state => state.session.user)
-    const specificFlame = userObj?.flames?.filter(flame => flame?.user_id == userObj?.id && flame?.chant_id == chantId)
+    const specificFlame = userObj?.flames?.filter(flame => flame?.user_id === userObj?.id && flame?.chant_id === chantId)
     // console.log(specificFlame)
     const ref = useRef(null)
     const getFlameCount = async (chantId) => {
@@ -43,7 +43,7 @@ const Flame = ({ chant }) => {
 
     useEffect(() => {
         getFlameCount(chantId)
-    }, [flameCount])
+    }, [flameCount, chantId])
 
     return (
         <div className="chant-options">

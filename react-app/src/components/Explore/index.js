@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getChant } from "../../store/chants";
-import { getRemark } from "../../store/remarks";
+// import { getRemark } from "../../store/remarks";
 import ChantForm from "../ChantFormModal/ChantForm";
-import DeleteModal from "../DeleteChantModal";
-import EditChantFormModal from "../EditChantFormModal";
+// import DeleteModal from "../DeleteChantModal";
+// import EditChantFormModal from "../EditChantFormModal";
 import LeftSideBar from "../LeftSideBar";
-import UsersList from "../Users/UsersList";
+// import UsersList from "../Users/UsersList";
 import './index.css'
 import SingleChant from "./SingleChant";
 import SuggestedUsers from "../SuggestedMembers";
@@ -26,7 +26,7 @@ const Explore = () => {
             dispatch(getChant())
         }
         // dispatch(getRemark())
-    }, [dispatch])
+    }, [dispatch, chantsObj])
 
     return (
         <div className="page-container">

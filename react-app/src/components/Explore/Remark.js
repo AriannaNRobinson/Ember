@@ -23,7 +23,7 @@ const Remark = ({ remarks, chantId }) => {
 
     useEffect(() => {
         dispatch(getChant())
-    }, [toggleRemark])
+    }, [toggleRemark, dispatch])
     // console.log(chantId)
 
     const submitRemark = async (e) => {

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom"
 import ChantFormModal from "../ChantFormModal";
 
@@ -10,12 +10,12 @@ const LeftSideBar = () => {
     // const [clickedTab, setClickedTab] = useState(false)
     // working on   onClick={setClickedTab(!clickedTab)} id={clickedTab ? 'clicked' : 'not-clicked'}
 
-    const clickedTab = () => {
-        if (window.location.pathname === 'explore-wilds') {
-            const ele = document.getElementById('explore-wilds')
-            ele.classList.add('clicked')
-        }
-    }
+    // const clickedTab = () => {
+    //     if (window.location.pathname === 'explore-wilds') {
+    //         const ele = document.getElementById('explore-wilds')
+    //         ele.classList.add('clicked')
+    //     }
+    // }
 
     return (
         <div>

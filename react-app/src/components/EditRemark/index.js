@@ -10,7 +10,7 @@ const EditRemarkFormModal = ({remark}) => {
 
     useEffect(()=> {
         dispatch(getChant())
-    }, [showModal])
+    }, [showModal, dispatch])
 
     return (
         <>

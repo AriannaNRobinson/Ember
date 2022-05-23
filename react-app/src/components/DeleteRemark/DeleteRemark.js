@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux"
-import { getChant } from "../../store/chants";
+// import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux"
+// import { getChant } from "../../store/chants";
 import { removeRemark } from "../../store/remarks";
 // import { removeRemark } from '../../store/chants'
 

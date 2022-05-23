@@ -82,3 +82,7 @@
     letter-spacing: 3px;
     /* border-bottom: 2px solid green; */
 }
+
+#no-shouts {
+    color: green;
+}
