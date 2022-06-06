@@ -68,8 +68,15 @@
     border-radius: 10px;
 }
 
+.rechant-text {
+    font-size: 16px;
+    font-style: italic;
+    margin-left: 10px;
+}
+
 .rechant {
     padding: 10px;
+    color: green;
 }
 
 .chant {

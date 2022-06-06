@@ -10,7 +10,7 @@ const ReChant = ({chant}) => {
     const chantId = chant?.id 
     const chantUser = chant?.username
     const reChantContent = chant?.content
-    const reChant = '%*' + chantUser + '*' + reChantContent
+    let reChant = '%*' + chantUser + '*' + reChantContent
     const userObj = useSelector(state => state.session.user)
     const userId = userObj?.id
     const [errors, setErrors] = useState([])
@@ -19,8 +19,12 @@ const ReChant = ({chant}) => {
     const handleClick = async (e) => {
         e.preventDefault();
         setRechanted(true)
-        // console.log(chant, chantId, chantUser, content)
-        // console.log(reChant)
+
+        if (reChant?.split('*')[2] === '%'){
+            let rechantArr = reChant.split('*')
+            rechantArr.splice(0,2)
+            reChant = rechantArr.join('*')
+        }
         const formData = {
             content: reChant,
             user_id: userId
