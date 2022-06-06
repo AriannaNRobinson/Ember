@@ -6,6 +6,7 @@ import DeleteRemarkModal from '../DeleteRemark'
 import EditRemarkFormModal from '../EditRemark'
 import Flame from '../Flames'
 import { DateTime } from "luxon"
+import ReChant from './ReChant'
 
 const SingleChant = ({ chant, userObj }) => {
     const [toggleComment, setToggleComment] = useState('')
@@ -22,7 +23,9 @@ const SingleChant = ({ chant, userObj }) => {
                 {/* need to change below to user NAME */}
                 {/* <EditChantFormModal */}
                 <div className="user1">@{chant?.username}</div>
-                <div  id='chant-created-at'>
+                {chant?.content?.startsWith('%') &&
+                <div>retweeted</div>}
+                <div id='chant-created-at'>
                     {chant?.created_at && getDate(chant?.created_at)}
                     {/* {chant?.created_at.split(" ")[0]}{" "}
                     {chant?.created_at.split(" ")[2]}{" "}
@@ -55,7 +58,13 @@ const SingleChant = ({ chant, userObj }) => {
                 </div>
             </div>
 
-            <div className="chant">{chant?.content}</div>
+            {chant?.content?.startsWith('%') 
+            ? <div className='rechant-container'>
+                <div className='rechant rechant-user'>@{chant?.content.split('*')[1]}</div>
+                <div className='rechant'>{chant?.content.split('*')[2]}</div>
+                </div>
+            : <div className="chant">{chant?.content}</div>
+            }
             {chant?.user_id === userObj?.id &&
                 <div className='modify'>
                     <div><EditChantFormModal chant={chant} /></div>
@@ -68,8 +77,8 @@ const SingleChant = ({ chant, userObj }) => {
                     <i onClick={() => setToggleComment(toggleComment ? '' : chant?.id)} className="fa-solid fa-comment icon4"></i>
                     <div className='num-chants fa-solid'>{chant?.remarks?.length}</div>
                 </div>
-
-                    <Flame chant={chant}/>
+                <ReChant chant={chant}/>
+                <Flame chant={chant} />
 
             </div>
             {toggleComment !== '' && +toggleComment === +chant?.id && chant?.remarks.map(remark => (
