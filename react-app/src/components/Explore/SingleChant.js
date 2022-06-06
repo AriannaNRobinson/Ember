@@ -7,6 +7,7 @@ import EditRemarkFormModal from '../EditRemark'
 import Flame from '../Flames'
 import { DateTime } from "luxon"
 import ReChant from './ReChant'
+import { NavLink } from 'react-router-dom'
 
 const SingleChant = ({ chant, userObj }) => {
     const [toggleComment, setToggleComment] = useState('')
@@ -60,8 +61,8 @@ const SingleChant = ({ chant, userObj }) => {
                 ? <div>
                     <div className='rechant-text'>ReShout</div>
                     <div className='rechant-container'>
-                        <div className='rechant rechant-user'>@{chant?.content.split('*')[1]}</div>
-                        <div className='rechant'>{chant?.content.split('*')[2]}</div>
+                        <NavLink to={`/users/${chant?.content.split('*')[2]}`} className='rechant rechant-user'>@{chant?.content.split('*')[1]}</NavLink>
+                        <div className='rechant'>{chant?.content.split('*')[3]}</div>
                     </div>
                 </div>
                 : <div className="chant">{chant?.content}</div>
