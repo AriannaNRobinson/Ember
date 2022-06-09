@@ -55,6 +55,31 @@
     font-size: 30px;
 }
 
+.rechant-user {
+    background-color: rgb(195, 250, 211);
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.rechant-container {
+    padding: 10px 20px;
+    background-color: rgb(218, 255, 220);
+    border-radius: 10px;
+}
+
+.rechant-text {
+    font-size: 16px;
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.rechant {
+    padding: 10px;
+    color: green;
+}
+
 .chant {
     font-size: 22px;
     padding: 10px 20px;
