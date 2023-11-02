@@ -8,6 +8,11 @@ Create Date: 2020-11-20 15:06:02.230689
 from alembic import op
 import sqlalchemy as sa
 
+# For Render
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
+
 
 # revision identifiers, used by Alembic.
 revision = 'ffdc0a98111c'
@@ -28,6 +33,11 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
     # ### end Alembic commands ###qqqqqqqqq
+
+    # For Render
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
 
 
 def downgrade():
