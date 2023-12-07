@@ -1,4 +1,6 @@
 from app.models import db, Chant
+# For Render
+from app.models.db import db, environment, SCHEMA
 
 def seed_chants():
     chant1 = Chant(
@@ -120,5 +122,13 @@ def seed_chants():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_chants():
-    db.session.execute('TRUNCATE chants RESTART IDENTITY CASCADE;')
+    # db.session.execute('TRUNCATE chants RESTART IDENTITY CASCADE;')
+    # db.session.commit()
+
+    # For Render
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.chants RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM chants")
+
     db.session.commit()

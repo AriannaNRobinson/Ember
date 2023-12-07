@@ -15,25 +15,34 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     # For Render
+    # if environment == 'production':
+    #     # Before seeding, truncate all tables prefixed with schema name
+    #     db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+    #     # Add a truncate command here for every table that will be seeded.
+    #     db.session.commit()
+    # seed_users()
+    # # For Render
+    # if environment == 'production':
+    #     # Before seeding, truncate all tables prefixed with schema name
+    #     db.session.execute(f"TRUNCATE table {SCHEMA}.chants RESTART IDENTITY CASCADE;")
+    #     # Add a truncate command here for every table that will be seeded.
+    #     db.session.commit()
+    # seed_chants()
+    # # For Render
+    # if environment == 'production':
+    #     # Before seeding, truncate all tables prefixed with schema name
+    #     db.session.execute(f"TRUNCATE table {SCHEMA}.remarks RESTART IDENTITY CASCADE;")
+    #     # Add a truncate command here for every table that will be seeded.
+    #     db.session.commit()
+    # seed_remarks()
+
+    # For Render
     if environment == 'production':
-        # Before seeding, truncate all tables prefixed with schema name
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
-        # Add a truncate command here for every table that will be seeded.
-        db.session.commit()
+        undo_users()
+        undo_chants()
+        undo_remarks()
     seed_users()
-    # For Render
-    if environment == 'production':
-        # Before seeding, truncate all tables prefixed with schema name
-        db.session.execute(f"TRUNCATE table {SCHEMA}.chants RESTART IDENTITY CASCADE;")
-        # Add a truncate command here for every table that will be seeded.
-        db.session.commit()
     seed_chants()
-    # For Render
-    if environment == 'production':
-        # Before seeding, truncate all tables prefixed with schema name
-        db.session.execute(f"TRUNCATE table {SCHEMA}.remarks RESTART IDENTITY CASCADE;")
-        # Add a truncate command here for every table that will be seeded.
-        db.session.commit()
     seed_remarks()
 
     # Add other seed functions here
@@ -46,3 +55,6 @@ def undo():
     undo_chants()
     undo_remarks()
     # Add other undo functions here
+
+    # For Render
+

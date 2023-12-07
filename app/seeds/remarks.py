@@ -1,4 +1,6 @@
 from app.models import db, Remark
+# For Render
+from app.models.db import db, environment, SCHEMA
 
 def seed_remarks():
     remark1 = Remark(
@@ -206,5 +208,13 @@ def seed_remarks():
     db.session.commit()
 
 def undo_remarks():
-    db.session.execute('TRUNCATE remarks RESTART IDENTITY CASCADE;')
+    # db.session.execute('TRUNCATE remarks RESTART IDENTITY CASCADE;')
+    # db.session.commit()
+
+    # For Render
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.remarks RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM remarks")
+
     db.session.commit()
